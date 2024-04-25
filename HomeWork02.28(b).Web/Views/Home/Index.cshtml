@@ -1,0 +1,42 @@
+﻿@using HomeWork02._28_b_.Data.HomeWork_02._28.Data
+@model PersonViewModel
+
+@if (!String.IsNullOrEmpty(Model.Message))
+{
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @Model.Message
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <a href="/home/add" class="btn btn-primary">Add Person</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <table class="table table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Birth Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Person p in Model.Persons)
+                    {
+                        <tr>
+                            <td>@p.FirstName</td>
+                            <td>@p.LastName</td>
+                            <td>@p.BirthDay</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
